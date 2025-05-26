@@ -56,6 +56,73 @@ O código atualizado está organizado em classes e módulos que seguem o princí
 
 ---
 
+## 🧪 Descrição dos Testes Implementados
+
+Os testes foram desenvolvidos utilizando o framework **unittest**, com uso extensivo de **unittest.mock** para simular interações do usuário, leituras e escritas em arquivos, e chamadas de validação.
+
+### ✅ Testes Unitários por Funcionalidade
+
+- **test_cadastro_reserva**  
+  **Objetivo:** Verificar se uma nova reserva é cadastrada corretamente com entradas válidas.  
+  **Verificações:**  
+  - Mock de `input()` simula os dados do usuário.  
+  - Mock de `carregar_reservas()` retorna lista vazia.  
+  - Verifica se `salvar_reservas()` é chamado com a nova reserva.
+
+- **test_alteracao_numero_pessoas**  
+  **Objetivo:** Validar a alteração do número de pessoas em uma reserva existente.  
+  **Verificações:**  
+  - Mock de `input()` simula CPF, ID da reserva e novo número de pessoas.  
+  - Reserva alterada tem o valor atualizado corretamente.
+
+- **test_checkin**  
+  **Objetivo:** Confirmar se uma reserva com status “R” é atualizada para “A” (Ativa) no check-in.  
+  **Verificações:**  
+  - Mock de `carregar_reservas()` retorna uma reserva com status “R”.  
+  - Após o input, o status da reserva se torna “A”.
+
+- **test_checkout**  
+  **Objetivo:** Validar que uma reserva ativa (status “A”) muda para “F” (Finalizada) no check-out.  
+  **Verificações:**  
+  - Mock de `carregar_reservas()` retorna uma reserva com status “A”.  
+  - Após o input, o status da reserva se torna “F”.
+
+- **test_relatorio_status**  
+  **Objetivo:** Confirmar que o relatório por status retorna apenas as reservas filtradas corretamente.  
+  **Verificações:**  
+  - `print()` é mockado e verificado com base na string "Total: N reserva(s).".
+
+- **test_relatorio_valor_finalizado**  
+  **Objetivo:** Calcular corretamente a soma de valores das reservas finalizadas (status “F”).  
+  **Verificações:**  
+  - Mock de reservas inclui ao menos uma com status "F".  
+  - Verifica se o valor total exibido está correto.
+
+- **test_relatorio_por_cpf**  
+  **Objetivo:** Exibir corretamente todas as reservas associadas a um CPF informado.  
+  **Verificações:**  
+  - Mock de `input()` fornece o CPF.  
+  - Mock de reservas retorna várias reservas com o mesmo CPF.  
+  - Valida a contagem e exibição correta.
+
+---
+
+## 🛡️ Abordagem de Testes
+
+- Todos os testes isolam dependências externas.  
+- Arquivos reais não são lidos ou escritos durante a execução dos testes.  
+- Entradas do usuário são simuladas com `patch('builtins.input')`.  
+- Funções críticas como `carregar_reservas` e `salvar_reservas` são mockadas no local correto, ou seja, onde são importadas para garantir o isolamento.
+
+---
+
+## ⚙️ Como Executar os Testes
+
+```bash
+# Execute os testes com cobertura
+python -m unittest discover -v
+```
+
 ## Estrutura Modular do Novo Projeto
 
 ```plaintext
@@ -74,3 +141,6 @@ Gestao-de-Reservas-de-Hotel/
 │   ├── calculos.py
 │   └── validacoes.py
 └── reservas.txt
+
+
+
