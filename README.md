@@ -51,6 +51,7 @@ O código atualizado está organizado em classes e módulos que seguem o princí
 - ✅ Transformação de *blocos repetitivos* em funções *reutilizáveis e limpas*
 - ✅ Nomes de variáveis refatorados para versões mais *descritivas e compreensíveis*
 - ✅ Aplicação de princípios de *responsabilidade única (SRP)* em todas as funções
+- ✅ Testes unitários implementados com o módulo padrão unittest, utilizando mock para isolar entradas e saídas.
 - ✅ Cobertura total de testes de aproximadamente 85%
 
 ---
