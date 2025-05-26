@@ -17,6 +17,15 @@ O código inicial era procedural, pouco organizado e de difícil manutenção. A
 
 O sistema é utilizado via **terminal**, permitindo a gestão das reservas de forma simples e direta por meio de comandos.
 
+![Menu](assets/image1.png)
+
+Por meio do Menu, é possível:
+- Realizar o cadastro de uma nova reserva;
+- Realizar Check-in de uma reserva existente;
+- Realizar Check-out de uma reserva existente;
+- Alterar uma reserva existente;
+- Solicitar um relatório com base nas reservas cadastradas;
+
 ## Estrutura do Projeto
 
 O código atualizado está organizado em classes e módulos que seguem o princípio da responsabilidade única (SRP) e outras boas práticas de engenharia de software.
